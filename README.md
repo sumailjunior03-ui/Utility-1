@@ -1,4 +1,4 @@
-# Utility #1 — Business Day Calculator (US)
+# Utility #1 — Biz Day Checker (US)
 
 Static business day calculator:
 - Add or subtract business days from a start date
