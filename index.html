@@ -9,8 +9,8 @@
     content="Calculate dates with Biz Day Checker. Adds or subtracts US business days. Excludes weekends and US federal holidays (observed)." />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- AdSense placeholder (INACTIVE) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
     crossorigin="anonymous"></script>
 </head>
 
@@ -77,7 +77,7 @@
 
     <!-- Ad placeholder -->
     <section class="ad-slot">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="0000000000"
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7744853829365165" data-ad-slot="0000000000"
         data-ad-format="auto" data-full-width-responsive="true" data-adtest="on"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
@@ -87,8 +87,19 @@
 
   <footer class="wrap footer">
     <p>bizdaychecker.com · Static utility · No tracking · Deterministic output</p>
+    <p class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <span class="sep">|</span>
+      <a href="faq.html">FAQ</a>
+      <span class="sep">|</span>
+      <a href="contact.html">Contact</a>
+    </p>
+    <p class="footer-meta">© <span id="year"></span> bizdaychecker.com</p>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
   <script src="script.js"></script>
 </body>
 

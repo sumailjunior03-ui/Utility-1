@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Biz Day Checker</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main style="max-width:900px;margin:24px auto;padding:16px;">
+        <h1>Contact</h1>
+
+        <p>Feedback and bug reports are welcome as we continue to improve this tool.</p>
+
+        <p>Currently, we are not accepting direct inquiries, but we regularly update the site based on user feedback and
+            common calculation requirements.</p>
+
+        <p style="font-size: 0.9rem; opacity: 0.8; border-top: 1px solid #eee; padding-top: 20px;">
+            <strong>Notice:</strong> This tool provides deterministic date calculations for informational purposes only
+            and does not constitute legal or financial advice.
+        </p>
+
+        <p><a href="index.html">← Back to calculator</a></p>
+    </main>
+
+    <footer class="wrap footer">
+        <p>bizdaychecker.com · Static utility · No tracking · Deterministic output</p>
+        <p class="footer-links">
+            <a href="privacy.html">Privacy</a>
+            <span class="sep">|</span>
+            <a href="faq.html">FAQ</a>
+            <span class="sep">|</span>
+            <a href="contact.html">Contact</a>
+        </p>
+        <p class="footer-meta">© <span id="year"></span> bizdaychecker.com</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

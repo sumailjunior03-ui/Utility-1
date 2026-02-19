@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ — Biz Day Checker</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main style="max-width:900px;margin:24px auto;padding:16px;">
+        <h1>FAQ</h1>
+
+        <section class="faq" aria-labelledby="faq-title">
+            <details class="faq-item">
+                <summary>What counts as a business day?</summary>
+                <p>A business day is Monday through Friday, excluding U.S. federal holidays. Weekends are never counted.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Are U.S. federal holidays included?</summary>
+                <p>Yes. Observed U.S. federal holidays are excluded from business day counts.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>What does "Include start date as Day 1" mean?</summary>
+                <p>If enabled, the start date is counted as Day 1 only if it is a business day.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>How does "Days Between Dates" work?</summary>
+                <p>This mode counts business days between two dates, excluding weekends and holidays.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Do you store my data?</summary>
+                <p>No. Calculations run in your browser and inputs are not stored.</p>
+            </details>
+        </section>
+
+        <p><a href="index.html">← Back to calculator</a></p>
+    </main>
+
+    <footer class="wrap footer">
+        <p>bizdaychecker.com · Static utility · No tracking · Deterministic output</p>
+        <p class="footer-links">
+            <a href="privacy.html">Privacy</a>
+            <span class="sep">|</span>
+            <a href="faq.html">FAQ</a>
+            <span class="sep">|</span>
+            <a href="contact.html">Contact</a>
+        </p>
+        <p class="footer-meta">© <span id="year"></span> bizdaychecker.com</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
