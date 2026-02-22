@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bizdaychecker.com/sitemap.xml
