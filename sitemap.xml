@@ -3,5 +3,6 @@
   <url><loc>https://bizdaychecker.com/</loc><priority>1.0</priority></url>
   <url><loc>https://bizdaychecker.com/faq.html</loc><priority>0.8</priority></url>
   <url><loc>https://bizdaychecker.com/contact.html</loc><priority>0.6</priority></url>
+  <url><loc>https://bizdaychecker.com/legal.html</loc><priority>0.6</priority></url>
   <url><loc>https://bizdaychecker.com/privacy.html</loc><priority>0.5</priority></url>
 </urlset>
