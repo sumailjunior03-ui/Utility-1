@@ -1,220 +1,375 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Biz Day Checker — Business Day Calculator</title>
-  <meta name="description" content="Free business day calculator. Add business days to a date or count business days between two dates. US federal holidays included automatically." />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Biz Day Checker — Business Day Calculator</title>
+        <meta
+            name="description"
+            content="Free business day calculator. Add business days to a date or count business days between two dates. US federal holidays included automatically."
+        />
 
-  <!-- AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
+        <!-- AdSense -->
+        <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
+        <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
+            crossorigin="anonymous"
+        ></script>
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="wrap">
+            <header>
+                <div class="brand">
+                    <h1>Biz Day Checker</h1>
+                    <p>
+                        Business day calculator — US federal holidays included
+                        automatically.
+                    </p>
+                </div>
+                <nav>
+                    <a href="index.html" class="active">Home</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="legal.html">Legal</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </header>
 
-  <div class="wrap">
+            <!-- Sponsor banner (inactive — enable when sponsor confirmed) -->
+            <div
+                class="sponsor-banner"
+                style="display: none"
+                aria-hidden="true"
+            >
+                <span class="sponsor-label">Sponsored</span>
+                <span class="sponsor-content"
+                    ><!-- Sponsor content here --></span
+                >
+            </div>
 
-    <header>
-      <div class="brand">
-        <h1>Biz Day Checker</h1>
-        <p>Business day calculator — US federal holidays included automatically.</p>
-      </div>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="legal.html">Legal</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+            <!-- AdSense top slot -->
+            <div class="ad-slot" aria-hidden="true">
+                <!-- AdSense ad unit here once approved -->
+            </div>
 
-    <!-- Sponsor banner (inactive — enable when sponsor confirmed) -->
-    <div class="sponsor-banner" style="display:none;" aria-hidden="true">
-      <span class="sponsor-label">Sponsored</span>
-      <span class="sponsor-content"><!-- Sponsor content here --></span>
-    </div>
+            <div class="grid">
+                <section class="card">
+                    <h2>Calculate business days</h2>
 
-    <!-- AdSense top slot -->
-    <div class="ad-slot" aria-hidden="true">
-      <!-- AdSense ad unit here once approved -->
-    </div>
+                    <label for="mode">Mode</label>
+                    <select id="mode">
+                        <option value="add">Add business days to a date</option>
+                        <option value="between">
+                            Business days between two dates
+                        </option>
+                    </select>
 
-    <div class="grid">
-      <section class="card">
-        <h2>Calculate business days</h2>
+                    <div id="addMode">
+                        <label for="startDate">Start date</label>
+                        <input type="date" id="startDate" />
+                        <label for="daysToAdd">Business days to add</label>
+                        <input type="number" id="daysToAdd" value="1" min="0" />
+                    </div>
 
-        <label for="mode">Mode</label>
-        <select id="mode">
-          <option value="add">Add business days to a date</option>
-          <option value="between">Business days between two dates</option>
-        </select>
+                    <div id="betweenMode" style="display: none">
+                        <label for="betweenStart">Start date</label>
+                        <input type="date" id="betweenStart" />
+                        <label for="betweenEnd">End date</label>
+                        <input type="date" id="betweenEnd" />
+                    </div>
 
-        <div id="addMode">
-          <label for="startDate">Start date</label>
-          <input type="date" id="startDate">
-          <label for="daysToAdd">Business days to add</label>
-          <input type="number" id="daysToAdd" value="1" min="0">
+                    <label>
+                        <input type="checkbox" id="includeStart" /> Include
+                        start date as Day 1 (if business day)
+                    </label>
+
+                    <label for="customHolidays"
+                        >Custom holidays (optional)</label
+                    >
+                    <textarea
+                        id="customHolidays"
+                        placeholder="YYYY-MM-DD per line"
+                    ></textarea>
+
+                    <button class="btn" onclick="calculate()">Calculate</button>
+                    <button class="btn-secondary" onclick="copyResult()">
+                        Copy result
+                    </button>
+
+                    <div class="result" id="result">
+                        Enter values and calculate.
+                    </div>
+
+                    <p class="mini">
+                        Disclaimer: This is an informational tool. US federal
+                        holidays (observed) are included. Results are for
+                        planning purposes only.
+                    </p>
+                </section>
+
+                <aside class="card">
+                    <h2>What this tool does</h2>
+                    <p>
+                        Quickly find a future date by adding business days, or
+                        count how many business days fall between two dates.
+                    </p>
+                    <ul>
+                        <li>
+                            US federal holidays (observed) excluded
+                            automatically
+                        </li>
+                        <li>Weekends never counted</li>
+                        <li>Add custom holidays for your region or company</li>
+                        <li>Copy result with one click</li>
+                    </ul>
+                    <div class="sep"></div>
+                    <p class="mini">
+                        No accounts, no tracking, no subscriptions. Runs
+                        entirely in your browser.
+                    </p>
+
+                    <!-- Sidebar sponsor slot (inactive — enable when sponsor confirmed) -->
+                    <div
+                        class="sponsor-sidebar"
+                        style="display: none"
+                        aria-hidden="true"
+                    >
+                        <span class="sponsor-label">Sponsored</span>
+                        <!-- Sponsor content here -->
+                    </div>
+                </aside>
+            </div>
+
+            <!-- AdSense bottom slot -->
+            <div class="ad-slot" aria-hidden="true">
+                <!-- AdSense ad unit here once approved -->
+            </div>
+
+            <footer class="foot">
+                <div class="sep"></div>
+                <div class="network-links related-tools">
+                    <strong>Related Tools:</strong>
+                    <a
+                        href="https://bankcutoffchecker.com"
+                        target="_blank"
+                        rel="noopener"
+                        >BankCutoffChecker.com</a
+                    >
+                    &nbsp;•&nbsp;
+                    <a
+                        href="https://salaryvsinflation.com"
+                        target="_blank"
+                        rel="noopener"
+                        >SalaryVsInflation.com</a
+                    >
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+                    <a href="contact.html">Contact</a> &nbsp;|&nbsp;
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="footer-meta">
+                    © <span id="year"></span> BizDayChecker.com
+                </div>
+                <p class="sponsor-line">
+                    Sponsored placements &amp; partnerships:
+                    <a href="mailto:partnerships@calc-hq.com"
+                        >partnerships@calc-hq.com</a
+                    >
+                </p>
+            </footer>
         </div>
 
-        <div id="betweenMode" style="display:none;">
-          <label for="betweenStart">Start date</label>
-          <input type="date" id="betweenStart">
-          <label for="betweenEnd">End date</label>
-          <input type="date" id="betweenEnd">
-        </div>
+        <script>
+            function toISO(d) {
+                return d.toISOString().slice(0, 10);
+            }
+            function addDays(d, n) {
+                let x = new Date(d);
+                x.setDate(x.getDate() + n);
+                return x;
+            }
+            function isWeekend(d) {
+                return d.getDay() == 0 || d.getDay() == 6;
+            }
 
-        <label>
-          <input type="checkbox" id="includeStart"> Include start date as Day 1 (if business day)
-        </label>
+            function usHolidays(year) {
+                function obs(d) {
+                    let x = new Date(d.getTime());
+                    if (x.getDay() == 6) x = addDays(x, -1);
+                    if (x.getDay() == 0) x = addDays(x, 1);
+                    return x;
+                }
+                let h = [];
+                // New Year's Day - also check if Jan 1 falls on Saturday (observed Dec 31 prev year)
+                let ny = obs(new Date(year, 0, 1));
+                h.push(ny);
+                // If Jan 1 is Saturday, observed is Dec 31 of previous year - add that too
+                if (new Date(year, 0, 1).getDay() == 6)
+                    h.push(new Date(year - 1, 11, 31));
+                h.push(
+                    new Date(
+                        year,
+                        0,
+                        15 + ((1 - new Date(year, 0, 15).getDay() + 7) % 7),
+                    ),
+                ); // MLK Day
+                h.push(
+                    new Date(
+                        year,
+                        1,
+                        15 + ((1 - new Date(year, 1, 15).getDay() + 7) % 7),
+                    ),
+                ); // Presidents Day
+                h.push(
+                    new Date(
+                        year,
+                        4,
+                        31 - ((new Date(year, 4, 31).getDay() + 6) % 7),
+                    ),
+                ); // Memorial Day (last Mon May)
+                if (year >= 2021) h.push(obs(new Date(year, 5, 19))); // Juneteenth
+                h.push(obs(new Date(year, 6, 4))); // Independence Day
+                h.push(
+                    new Date(
+                        year,
+                        8,
+                        1 + ((1 - new Date(year, 8, 1).getDay() + 7) % 7),
+                    ),
+                ); // Labor Day
+                h.push(
+                    new Date(
+                        year,
+                        9,
+                        8 + ((1 - new Date(year, 9, 8).getDay() + 7) % 7),
+                    ),
+                ); // Columbus Day (2nd Mon Oct)
+                h.push(obs(new Date(year, 10, 11))); // Veterans Day
+                h.push(
+                    new Date(
+                        year,
+                        10,
+                        22 + ((4 - new Date(year, 10, 22).getDay() + 7) % 7),
+                    ),
+                ); // Thanksgiving
+                h.push(obs(new Date(year, 11, 25))); // Christmas
+                return h.map(toISO);
+            }
 
-        <label for="customHolidays">Custom holidays (optional)</label>
-        <textarea id="customHolidays" placeholder="YYYY-MM-DD per line"></textarea>
+            function buildHolidaySet(startDate, endDate) {
+                // Generate holidays for every year in the range + buffer years
+                let hol = new Set();
+                let startYear = startDate.getFullYear() - 1;
+                let endYear = endDate.getFullYear() + 1;
+                for (let y = startYear; y <= endYear; y++) {
+                    usHolidays(y).forEach((d) => hol.add(d));
+                }
+                return hol;
+            }
 
-        <button class="btn" onclick="calculate()">Calculate</button>
-        <button class="btn-secondary" onclick="copyResult()">Copy result</button>
+            function calculate() {
+                let include = document.getElementById("includeStart").checked;
+                let custom = new Set(
+                    document
+                        .getElementById("customHolidays")
+                        .value.split("\n")
+                        .map((x) => x.trim())
+                        .filter((x) => x),
+                );
 
-        <div class="result" id="result">Enter values and calculate.</div>
+                // Determine date range for holiday generation
+                let mode = document.getElementById("mode").value;
+                let rangeStart, rangeEnd;
+                if (mode == "add") {
+                    rangeStart = new Date(
+                        document.getElementById("startDate").value,
+                    );
+                    let n =
+                        parseInt(
+                            document.getElementById("daysToAdd").value,
+                            10,
+                        ) || 0;
+                    rangeEnd = addDays(rangeStart, Math.max(n * 2, 365)); // buffer
+                } else {
+                    rangeStart = new Date(
+                        document.getElementById("betweenStart").value,
+                    );
+                    rangeEnd = new Date(
+                        document.getElementById("betweenEnd").value,
+                    );
+                }
 
-        <p class="mini">Disclaimer: This is an informational tool. US federal holidays (observed) are included. Results are for planning purposes only.</p>
-      </section>
+                let hol = buildHolidaySet(rangeStart, rangeEnd);
+                function isBiz(d) {
+                    return (
+                        !isWeekend(d) &&
+                        !hol.has(toISO(d)) &&
+                        !custom.has(toISO(d))
+                    );
+                }
+                let out = "";
+                if (mode == "add") {
+                    let s = new Date(
+                        document.getElementById("startDate").value,
+                    );
+                    let n = parseInt(
+                        document.getElementById("daysToAdd").value,
+                        10,
+                    );
+                    let cur = new Date(s);
+                    let count = 0;
+                    if (include && isBiz(cur)) count = 1;
+                    else cur = addDays(cur, 1);
+                    while (count < n) {
+                        if (isBiz(cur)) count++;
+                        if (count < n) cur = addDays(cur, 1);
+                    }
+                    while (!isBiz(cur)) cur = addDays(cur, 1);
+                    out = "Result date: " + toISO(cur);
+                } else {
+                    let a = new Date(
+                        document.getElementById("betweenStart").value,
+                    );
+                    let b = new Date(
+                        document.getElementById("betweenEnd").value,
+                    );
+                    if (b < a) {
+                        let t = a;
+                        a = b;
+                        b = t;
+                    }
+                    let cur = new Date(a);
+                    if (!include) cur = addDays(cur, 1);
+                    let cnt = 0;
+                    while (cur <= b) {
+                        if (isBiz(cur)) cnt++;
+                        cur = addDays(cur, 1);
+                    }
+                    out = "Business days between: " + cnt;
+                }
+                document.getElementById("result").innerText = out;
+            }
 
-      <aside class="card">
-        <h2>What this tool does</h2>
-        <p>Quickly find a future date by adding business days, or count how many business days fall between two dates.</p>
-        <ul>
-          <li>US federal holidays (observed) excluded automatically</li>
-          <li>Weekends never counted</li>
-          <li>Add custom holidays for your region or company</li>
-          <li>Copy result with one click</li>
-        </ul>
-        <div class="sep"></div>
-        <p class="mini">No accounts, no tracking, no subscriptions. Runs entirely in your browser.</p>
+            function copyResult() {
+                navigator.clipboard.writeText(
+                    document.getElementById("result").innerText,
+                );
+            }
 
-        <!-- Sidebar sponsor slot (inactive — enable when sponsor confirmed) -->
-        <div class="sponsor-sidebar" style="display:none;" aria-hidden="true">
-          <span class="sponsor-label">Sponsored</span>
-          <!-- Sponsor content here -->
-        </div>
-      </aside>
-    </div>
+            document.getElementById("mode").addEventListener("change", (e) => {
+                document.getElementById("addMode").style.display =
+                    e.target.value == "add" ? "block" : "none";
+                document.getElementById("betweenMode").style.display =
+                    e.target.value == "between" ? "block" : "none";
+            });
 
-    <!-- AdSense bottom slot -->
-    <div class="ad-slot" aria-hidden="true">
-      <!-- AdSense ad unit here once approved -->
-    </div>
+            document.getElementById("year").textContent =
+                new Date().getFullYear();
+        </script>
 
-    <footer class="foot">
-      <div class="sep"></div>
-      <div class="network-links related-tools"><strong>Related Tools:</strong> <a href="https://bankcutoffchecker.com" target="_blank" rel="noopener">BankCutoffChecker.com</a> &nbsp;•&nbsp; <a href="https://salaryvsinflation.com" target="_blank" rel="noopener">SalaryVsInflation.com</a></div>
-      <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-        <a href="contact.html">Contact</a> &nbsp;|&nbsp;
-        <a href="faq.html">FAQ</a>
-      </div>
-      <div class="footer-meta">© <span id="year"></span> BizDayChecker.com</div>
-      <p class="sponsor-line">Sponsored placements &amp; partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></p>
-    </footer>
-
-  </div>
-
-  <script>
-  function toISO(d){return d.toISOString().slice(0,10);}
-  function addDays(d,n){let x=new Date(d);x.setDate(x.getDate()+n);return x;}
-  function isWeekend(d){return d.getDay()==0||d.getDay()==6;}
-
-  function usHolidays(year){
-    function obs(d){
-      let x=new Date(d.getTime());
-      if(x.getDay()==6)x=addDays(x,-1);
-      if(x.getDay()==0)x=addDays(x,1);
-      return x;
-    }
-    let h=[];
-    // New Year's Day - also check if Jan 1 falls on Saturday (observed Dec 31 prev year)
-    let ny=obs(new Date(year,0,1));
-    h.push(ny);
-    // If Jan 1 is Saturday, observed is Dec 31 of previous year - add that too
-    if(new Date(year,0,1).getDay()==6) h.push(new Date(year-1,11,31));
-    h.push(new Date(year,0,15+((1-new Date(year,0,15).getDay()+7)%7))); // MLK Day
-    h.push(new Date(year,1,15+((1-new Date(year,1,15).getDay()+7)%7))); // Presidents Day
-    h.push(new Date(year,4,31-((new Date(year,4,31).getDay()+6)%7)));   // Memorial Day (last Mon May)
-    if(year>=2021)h.push(obs(new Date(year,5,19)));                      // Juneteenth
-    h.push(obs(new Date(year,6,4)));                                      // Independence Day
-    h.push(new Date(year,8,1+((1-new Date(year,8,1).getDay()+7)%7)));   // Labor Day
-    h.push(new Date(year,9,8+((1-new Date(year,9,8).getDay()+7)%7)));   // Columbus Day (2nd Mon Oct)
-    h.push(obs(new Date(year,10,11)));                                    // Veterans Day
-    h.push(new Date(year,10,22+((4-new Date(year,10,22).getDay()+7)%7))); // Thanksgiving
-    h.push(obs(new Date(year,11,25)));                                    // Christmas
-    return h.map(toISO);
-  }
-
-  function buildHolidaySet(startDate, endDate){
-    // Generate holidays for every year in the range + buffer years
-    let hol=new Set();
-    let startYear=startDate.getFullYear()-1;
-    let endYear=endDate.getFullYear()+1;
-    for(let y=startYear;y<=endYear;y++){
-      usHolidays(y).forEach(d=>hol.add(d));
-    }
-    return hol;
-  }
-
-  function calculate(){
-    let include=document.getElementById('includeStart').checked;
-    let custom=new Set(document.getElementById('customHolidays').value.split('\n').map(x=>x.trim()).filter(x=>x));
-
-    // Determine date range for holiday generation
-    let mode=document.getElementById('mode').value;
-    let rangeStart, rangeEnd;
-    if(mode=='add'){
-      rangeStart=new Date(document.getElementById('startDate').value);
-      let n=parseInt(document.getElementById('daysToAdd').value,10)||0;
-      rangeEnd=addDays(rangeStart, Math.max(n*2, 365)); // buffer
-    } else {
-      rangeStart=new Date(document.getElementById('betweenStart').value);
-      rangeEnd=new Date(document.getElementById('betweenEnd').value);
-    }
-
-    let hol=buildHolidaySet(rangeStart, rangeEnd);
-    function isBiz(d){return !isWeekend(d)&&!hol.has(toISO(d))&&!custom.has(toISO(d));}
-    let mode=document.getElementById('mode').value;
-    let out='';
-    if(mode=='add'){
-      let s=new Date(document.getElementById('startDate').value);
-      let n=parseInt(document.getElementById('daysToAdd').value,10);
-      let cur=new Date(s);
-      let count=0;
-      if(include&&isBiz(cur))count=1;else cur=addDays(cur,1);
-      while(count<n){if(isBiz(cur))count++;if(count<n)cur=addDays(cur,1);}
-      while(!isBiz(cur))cur=addDays(cur,1);
-      out='Result date: '+toISO(cur);
-    } else {
-      let a=new Date(document.getElementById('betweenStart').value);
-      let b=new Date(document.getElementById('betweenEnd').value);
-      if(b<a){let t=a;a=b;b=t;}
-      let cur=new Date(a);
-      if(!include)cur=addDays(cur,1);
-      let cnt=0;
-      while(cur<=b){if(isBiz(cur))cnt++;cur=addDays(cur,1);}
-      out='Business days between: '+cnt;
-    }
-    document.getElementById('result').innerText=out;
-  }
-
-  function copyResult(){
-    navigator.clipboard.writeText(document.getElementById('result').innerText);
-  }
-
-  document.getElementById('mode').addEventListener('change',e=>{
-    document.getElementById('addMode').style.display=e.target.value=='add'?'block':'none';
-    document.getElementById('betweenMode').style.display=e.target.value=='between'?'block':'none';
-  });
-
-  document.getElementById('year').textContent=new Date().getFullYear();
-  </script>
-
-  <script src="network.js"></script>
-</body>
+        <script src="network.js"></script>
+    </body>
 </html>
