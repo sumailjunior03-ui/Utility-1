@@ -3,6 +3,7 @@
    All sites update automatically. */
 
 window.CALCHQ_NETWORK = [
+  { name: "Calc-HQ", url: "https://calc-hq.com" },
   { name: "BizDayChecker.com", url: "https://bizdaychecker.com" },
   { name: "BankCutoffChecker.com", url: "https://bankcutoffchecker.com" },
   { name: "SalaryVsInflation.com", url: "https://salaryvsinflation.com" },
@@ -13,16 +14,19 @@ window.CALCHQ_NETWORK = [
 
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
-    // Find all elements with class "network-links"
     const containers = document.querySelectorAll(".network-links");
     if (!containers.length) return;
 
-    // Get current site domain to exclude self
     const currentDomain = window.location.hostname.replace("www.", "");
 
     containers.forEach(function (container) {
       const sites = window.CALCHQ_NETWORK.filter(function (site) {
-        return !site.url.includes(currentDomain);
+        try {
+          const u = new URL(site.url);
+          return u.hostname.replace("www.", "") !== currentDomain;
+        } catch (e) {
+          return true;
+        }
       });
 
       if (!sites.length) return;

@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>FAQ — Biz Day Checker</title>
+        <link rel="canonical" href="https://bizdaychecker.com/faq.html"/>
         <meta
             name="description"
             content="Frequently asked questions about the BizDayChecker business day calculator."
@@ -34,6 +35,10 @@
                     <a href="contact.html">Contact</a>
                 </nav>
             </header>
+            <!-- Sponsor (inactive by default) -->
+            <div id="sponsor" class="sponsor-slot is-off" aria-label="Sponsor"></div>
+            <!-- Ads (collapsed by default) -->
+            <div id="adTop" class="ad-slot is-off" aria-label="Advertisement"></div>
 
             <section class="card legal">
                 <h2>Frequently Asked Questions</h2>
@@ -90,6 +95,8 @@
                 </p>
             </section>
 
+            <div id="adBottom" class="ad-slot is-off" aria-label="Advertisement"></div>
+
             <footer class="foot">
                 <div class="sep"></div>
                 <div class="network-links related-tools"></div>
@@ -114,6 +121,8 @@
             document.getElementById("year").textContent =
                 new Date().getFullYear();
         </script>
+        <script src="config.js"></script>
+        <script src="ads.js"></script>
         <script src="network.js"></script>
     </body>
 </html>
