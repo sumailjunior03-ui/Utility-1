@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Biz Day Checker — Business Day Calculator</title>
+        <title>Business Day Calculator | BizDayChecker.com</title>
         <link rel="canonical" href="https://bizdaychecker.com/"/>
         <meta
             name="description"
@@ -19,6 +19,17 @@
         ></script>
 
         <link rel="stylesheet" href="styles.css" />
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Business Day Calculator",
+            "url": "https://bizdaychecker.com/",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "All",
+            "description": "Online business day calculator that adds or counts business days while skipping weekends and U.S. federal holidays (observed)."
+        }
+        </script>
     </head>
     <body>
         <div class="wrap">
@@ -100,11 +111,7 @@
                 </section>
 
                 <aside class="card">
-                    <h2>What this tool does</h2>
-                    <p>
-                        Quickly find a future date by adding business days, or
-                        count how many business days fall between two dates.
-                    </p>
+                    <h2>Key Features</h2>
                     <ul>
                         <li>
                             US federal holidays (observed) excluded
@@ -112,6 +119,7 @@
                         </li>
                         <li>Weekends never counted</li>
                         <li>Add custom holidays for your region or company</li>
+                        <li>Two modes: add days forward, or count between dates</li>
                         <li>Copy result with one click</li>
                     </ul>
                     <div class="sep"></div>
@@ -129,6 +137,91 @@
             </div>
 
             <div id="adBottom" class="ad-slot is-off" aria-label="Advertisement"></div>
+
+            <section class="content-section">
+                <h2>What This Calculator Does</h2>
+                <p>This business day calculator helps you calculate dates and deadlines using business days instead of calendar days. It operates in two modes.</p>
+                <p><strong>Mode 1 — Add business days:</strong> Enter a start date and a number of business days to add. The calculator counts forward, skipping weekends and U.S. federal holidays, and returns the resulting business date. This is useful for estimating payment processing dates, contract deadlines, and delivery windows.</p>
+                <p><strong>Mode 2 — Count between dates:</strong> Enter a start date and an end date. The calculator counts how many business days fall between them, excluding weekends and observed U.S. federal holidays. This is useful for tracking working days in a period, calculating payroll cycles, or measuring project timelines.</p>
+                <p>Both modes support an option to include or exclude the start date from the count, and allow you to enter custom holidays for your region or company calendar.</p>
+                <p class="mini">Results are estimates for planning purposes. Always verify critical deadlines with a qualified professional.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Example Business Day Calculation</h2>
+                <p>This example shows how the calculator adds business days while skipping weekends and U.S. federal holidays.</p>
+                <ul>
+                    <li><strong>Start date:</strong> Friday, March 6, 2026</li>
+                    <li><strong>Business days to add:</strong> 3</li>
+                </ul>
+                <p>The calculator moves forward one day at a time and only counts weekdays that are not federal holidays:</p>
+                <ul>
+                    <li>Saturday, March 7 → <em>skipped (weekend)</em></li>
+                    <li>Sunday, March 8 → <em>skipped (weekend)</em></li>
+                    <li>Monday, March 9 → Day 1</li>
+                    <li>Tuesday, March 10 → Day 2</li>
+                    <li>Wednesday, March 11 → Day 3</li>
+                </ul>
+                <p><strong>Result: Wednesday, March 11, 2026</strong></p>
+                <p>This ensures weekends and federal holidays are not counted when determining business day timelines.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>How the Calculation Works</h2>
+                <p>Business days are calculated using the following rules:</p>
+                <ul>
+                    <li>Monday through Friday are counted as business days</li>
+                    <li>Saturdays and Sundays are excluded</li>
+                    <li>U.S. federal holidays are excluded using their observed dates</li>
+                    <li>When a holiday falls on a Saturday, the observed day is the preceding Friday</li>
+                    <li>When a holiday falls on a Sunday, the observed day is the following Monday</li>
+                    <li>Any custom holidays entered by the user are also excluded</li>
+                </ul>
+                <p><strong>Formula:</strong> Business Day Result = Start Date + Valid Business Days Counted Forward</p>
+                <p>A valid business day must satisfy both conditions: it falls Monday–Friday, and it is not a U.S. federal holiday.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Calculation Methodology</h2>
+                <p>This calculator applies U.S. federal holiday rules as defined by the Office of Personnel Management (OPM). All 11 federal public holidays are included:</p>
+                <ul>
+                    <li>New Year's Day (January 1)</li>
+                    <li>Martin Luther King Jr. Day (3rd Monday in January)</li>
+                    <li>Presidents' Day (3rd Monday in February)</li>
+                    <li>Memorial Day (last Monday in May)</li>
+                    <li>Juneteenth National Independence Day (June 19, since 2021)</li>
+                    <li>Independence Day (July 4)</li>
+                    <li>Labor Day (1st Monday in September)</li>
+                    <li>Columbus Day (2nd Monday in October)</li>
+                    <li>Veterans Day (November 11)</li>
+                    <li>Thanksgiving Day (4th Thursday in November)</li>
+                    <li>Christmas Day (December 25)</li>
+                </ul>
+                <p>Fixed-date holidays that fall on a weekend are shifted to the nearest weekday (Friday if Saturday, Monday if Sunday) per federal observed holiday rules. This methodology ensures business day results match the rules used by banks, payroll providers, and federal agencies.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Common Use Cases</h2>
+                <p>This business day calculator is commonly used for:</p>
+                <ul>
+                    <li><strong>Payroll processing timelines</strong> — find the submit date needed to pay employees on a target date</li>
+                    <li><strong>Bank settlement dates</strong> — determine when an ACH or wire transfer will settle</li>
+                    <li><strong>Invoice payment deadlines</strong> — calculate net-30 or net-60 payment due dates in business days</li>
+                    <li><strong>Contract notice periods</strong> — count business days for legal notice or termination clauses</li>
+                    <li><strong>Shipping and delivery estimates</strong> — estimate arrival dates when carriers use business day windows</li>
+                    <li><strong>Government and regulatory filing deadlines</strong> — determine exact business day cutoffs for submissions</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Related Calculators</h2>
+                <ul>
+                    <li><a href="https://bankcutoffchecker.com/" target="_blank" rel="noopener">Bank Cutoff Time Checker</a> — check whether an ACH or wire transfer will process today or next business day</li>
+                    <li><a href="https://payrolldatechecker.com/" target="_blank" rel="noopener">Payroll Date Checker</a> — calculate payroll submit dates based on pay date and lead time</li>
+                    <li><a href="https://hourly2salarycalc.com/" target="_blank" rel="noopener">Hourly to Salary Calculator</a> — convert hourly wage to annual, monthly, and weekly salary</li>
+                    <li><a href="https://salaryvsinflation.com/" target="_blank" rel="noopener">Salary vs Inflation Calculator</a> — see if your raise actually beats inflation in real terms</li>
+                </ul>
+            </section>
 
             <footer class="foot">
                 <div class="sep"></div>
