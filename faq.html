@@ -1,153 +1,116 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>FAQ | BizDayChecker.com</title>
-        <link rel="canonical" href="https://bizdaychecker.com/faq.html"/>
-        <meta name="description" content="Frequently asked questions about the BizDayChecker business day calculator." />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="FAQ | BizDayChecker.com" />
-        <meta property="og:description" content="Frequently asked questions about the BizDayChecker business day calculator." />
-        <meta property="og:url" content="https://bizdaychecker.com/faq.html" />
-        <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
-        <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
-            crossorigin="anonymous"
-        ></script>
-        <link rel="stylesheet" href="styles.css" />
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Business Day Calculator",
-            "url": "https://bizdaychecker.com/",
-            "applicationCategory": "FinanceApplication",
-            "operatingSystem": "All",
-            "description": "Online business day calculator that adds or counts business days while skipping weekends and U.S. federal holidays (observed)."
-        }
-        </script>
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              { "@type": "Question", "name": "What counts as a business day?", "acceptedAnswer": { "@type": "Answer", "text": "A business day is Monday through Friday, excluding US federal holidays (observed). Weekends are never counted." } },
-              { "@type": "Question", "name": "Are US federal holidays included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All observed US federal holidays are automatically excluded from business day counts." } },
-              { "@type": "Question", "name": "Can I add custom holidays?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — paste any custom holiday dates (YYYY-MM-DD format, one per line) in the custom holidays field." } },
-              { "@type": "Question", "name": "Do you store my data?", "acceptedAnswer": { "@type": "Answer", "text": "No. All calculations run entirely in your browser. No data is sent to any server or stored anywhere." } }
-            ]
-        }
-        </script>
-    </head>
-    <body>
-        <div class="wrap">
-            <header>
-                <div class="brand">
-                    <h1>Biz Day Checker</h1>
-                    <p>
-                        Business day calculator — US federal holidays included
-                        automatically.
-                    </p>
-                </div>
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="faq.html" class="active">FAQ</a>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="legal.html">Legal</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-            </header>
-            <!-- Sponsor (inactive by default) -->
-            <div id="sponsor" class="sponsor-slot is-off" aria-label="Sponsor"></div>
-            <!-- Ads (collapsed by default) -->
-            <div id="adTop" class="ad-slot is-off" aria-label="Advertisement"></div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | BizDayChecker.com</title>
+  <meta name="description" content="Frequently asked questions about business days, weekends, and observed U.S. federal holidays." />
+  <link rel="canonical" href="https://bizdaychecker.com/faq.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="FAQ | BizDayChecker.com" />
+  <meta property="og:description" content="Frequently asked questions about business days, weekends, and observed U.S. federal holidays." />
+  <meta property="og:url" content="https://bizdaychecker.com/faq.html" />
+  <meta property="og:site_name" content="BizDayChecker.com" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="FAQ | BizDayChecker.com" />
+  <meta name="twitter:description" content="Frequently asked questions about business days, weekends, and observed U.S. federal holidays." />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "FAQ",
+  "url": "https://bizdaychecker.com/faq.html",
+  "description": "Frequently asked questions about business days, weekends, and observed U.S. federal holidays."
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What counts as a business day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For this calculator, a business day is a weekday that is not an observed U.S. federal holiday."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are weekends business days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Saturdays and Sundays are treated as non-business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do federal holidays matter even if the date falls on a weekend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The calculator uses observed holiday dates, so if a holiday is observed on Friday or Monday, that observed date is treated as the non-business day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as every bank's internal business-day policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. The tool uses standard U.S. federal holiday and weekday rules, but specific institutions can have additional internal deadlines or exceptions."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<header>
+<div class="brand"><h1>Biz Day Checker</h1><p>Business day calculator — U.S. federal holidays included automatically.</p></div>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a class="active" href="faq.html">FAQ</a>
+<a href="privacy.html">Privacy</a>
+<a href="legal.html">Legal</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<main class="container">
 
-            <section class="card legal">
-                <h2>Frequently Asked Questions</h2>
+<section class="page-copy">
+  <h1>FAQ</h1>
 
-                <h3>What counts as a business day?</h3>
-                <p>
-                    A business day is Monday through Friday, excluding US
-                    federal holidays (observed). Weekends are never counted.
-                </p>
+  <h2>What counts as a business day?</h2>
+  <p>For this calculator, a business day is a weekday that is not an observed U.S. federal holiday.</p>
 
-                <h3>Are US federal holidays included?</h3>
-                <p>
-                    Yes. All observed US federal holidays are automatically
-                    excluded from business day counts, including New Year's Day,
-                    MLK Day, Presidents Day, Memorial Day, Juneteenth,
-                    Independence Day, Labor Day, Columbus Day, Veterans Day,
-                    Thanksgiving, and Christmas.
-                </p>
+  <h2>Are weekends business days?</h2>
+  <p>No. Saturdays and Sundays are treated as non-business days.</p>
 
-                <h3>What does "Include start date as Day 1" mean?</h3>
-                <p>
-                    If enabled, the start date itself counts as Day 1 — but only
-                    if it is a business day. If the start date falls on a
-                    weekend or holiday it is skipped and counting begins on the
-                    next business day.
-                </p>
+  <h2>Do federal holidays matter even if the date falls on a weekend?</h2>
+  <p>Yes. The calculator uses observed holiday dates, so if a holiday is observed on Friday or Monday, that observed date is treated as the non-business day.</p>
 
-                <h3>How does "Business days between dates" work?</h3>
-                <p>
-                    This mode counts how many business days fall between two
-                    dates, excluding weekends and federal holidays. Useful for
-                    calculating deadlines, payment windows, or contract terms.
-                </p>
+  <h2>Is this the same as every bank's internal business-day policy?</h2>
+  <p>Not always. The tool uses standard U.S. federal holiday and weekday rules, but specific institutions can have additional internal deadlines or exceptions.</p>
+</section>
 
-                <h3>Can I add custom holidays?</h3>
-                <p>
-                    Yes — paste any custom holiday dates (YYYY-MM-DD format, one
-                    per line) in the custom holidays field and they will be
-                    excluded from calculations automatically.
-                </p>
-
-                <h3>Do you store my data?</h3>
-                <p>
-                    No. All calculations run entirely in your browser. No data
-                    is sent to any server or stored anywhere.
-                </p>
-
-                <h3>Is this tool free?</h3>
-                <p>Yes, completely free with no account required.</p>
-
-                <div class="sep"></div>
-                <p class="mini">
-                    Still have questions? <a href="contact.html">Contact us</a>.
-                </p>
-            </section>
-
-            <div id="adBottom" class="ad-slot is-off" aria-label="Advertisement"></div>
-
-            <footer class="foot">
-                <div class="sep"></div>
-                <div class="network-links related-tools"></div>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy</a> &nbsp;|&nbsp;
-                    <a href="legal.html">Legal</a> &nbsp;|&nbsp;
-                    <a href="faq.html">FAQ</a> &nbsp;|&nbsp;
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-meta">
-                    © <span id="year"></span> BizDayChecker.com
-                </div>
-                <p class="sponsor-line">
-                    Sponsored placements &amp; partnerships:
-                    <a href="mailto:partnerships@calc-hq.com"
-                        >partnerships@calc-hq.com</a
-                    >
-                </p>
-            </footer>
-        </div>
-        <script>
-            document.getElementById("year").textContent =
-                new Date().getFullYear();
-        </script>
-        <script src="config.js"></script>
-        <script src="ads.js"></script>
-        <script src="network.js"></script>
-    </body>
+</main>
+<footer class="foot">
+<div class="sep"></div>
+<div class="network-links related-tools"></div>
+<div class="footer-links"><a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="legal.html">Legal</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a> <span class="footer-email">partnerships@calc-hq.com</span></div><div class="footer-resources"><strong>Resources:</strong> <a href="https://calc-hq.com" target="_blank" rel="noopener">Financial Calculator Hub</a></div>
+<div class="footer-meta">© <span id="year"></span> BizDayChecker.com</div>
+<p class="sponsor-line">Sponsored placements &amp; partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></p>
+</footer>
+  <script src="/assets/config.js"></script>
+  <script src="/assets/network.js"></script>
+  <script src="/assets/footer.js"></script>
+  <script src="/assets/ads.js"></script>
+  <script src="/assets/app.js"></script>
+</body>
 </html>

@@ -1,443 +1,169 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>Business Day Calculator | BizDayChecker.com</title>
-        <link rel="canonical" href="https://bizdaychecker.com/"/>
-        <meta
-            name="description"
-            content="Free business day calculator. Add business days to a date or count business days between two dates. US federal holidays included automatically."
-        />
-        <meta name="robots" content="index, follow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Business Day Calculator | BizDayChecker.com" />
-        <meta property="og:description" content="Free business day calculator. Add business days to a date or count business days between two dates. US federal holidays included automatically." />
-        <meta property="og:url" content="https://bizdaychecker.com/" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Business Day Calculator | BizDayChecker.com</title>
+  <link rel="canonical" href="https://bizdaychecker.com/"/>
+  <meta name="description" content="Free business day calculator. Add business days to a date or count business days between two dates. U.S. federal holidays are included automatically." />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Business Day Calculator | BizDayChecker.com" />
+  <meta property="og:description" content="Free business day calculator. Add business days to a date or count business days between two dates. U.S. federal holidays are included automatically." />
+  <meta property="og:url" content="https://bizdaychecker.com/" />
+  <meta property="og:site_name" content="BizDayChecker.com" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Business Day Calculator | BizDayChecker.com" />
+  <meta name="twitter:description" content="Free business day calculator. Add business days to a date or count business days between two dates. U.S. federal holidays are included automatically." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Business Day Calculator","url":"https://bizdaychecker.com/","applicationCategory":"FinanceApplication","operatingSystem":"All","description":"Online business day calculator that adds or counts business days while skipping weekends and observed U.S. federal holidays."}</script>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="brand"><h1>Biz Day Checker</h1><p>Business day calculator — U.S. federal holidays included automatically.</p></div>
+<nav>
+<a href="index.html" class="active">Home</a>
+<a href="about.html">About</a>
+<a href="faq.html">FAQ</a>
+<a href="privacy.html">Privacy</a>
+<a href="legal.html">Legal</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+<div id="sponsor" class="sponsor-slot is-off" aria-label="Sponsor"></div>
+<div id="adTop" class="ad-slot is-off" aria-label="Advertisement"></div>
+<div class="grid">
+<section class="card">
+<h2>Calculate business days</h2>
+<label for="mode">Mode</label>
+<select id="mode">
+<option value="add">Add business days to a date</option>
+<option value="between">Business days between two dates</option>
+</select>
+<div id="addMode">
+<label for="startDate">Start date</label>
+<input type="date" id="startDate" />
+<label for="daysToAdd">Business days to add</label>
+<input type="number" id="daysToAdd" value="1" min="0" />
+</div>
+<div id="betweenMode" style="display: none">
+<label for="betweenStart">Start date</label>
+<input type="date" id="betweenStart" />
+<label for="betweenEnd">End date</label>
+<input type="date" id="betweenEnd" />
+</div>
+<label><input type="checkbox" id="includeStart" /> Include start date as Day 1 (if business day)</label>
+<label for="customHolidays">Custom holidays (optional)</label>
+<textarea id="customHolidays" placeholder="YYYY-MM-DD per line"></textarea>
+<button class="btn" onclick="calculate()">Calculate</button>
+<button class="btn-secondary" onclick="copyResult()">Copy result</button>
+<div class="result" id="result">Enter values and calculate.</div>
+<p class="mini">Disclaimer: This is an informational tool. Observed U.S. federal holidays are included automatically. Results are for planning purposes only.</p>
+</section>
+<aside class="card">
+<h2>When This Calculator Is Useful</h2>
+<ul>
+<li>Estimating payment, payroll, filing, or delivery dates that depend on business days</li>
+<li>Adding business days to a date while skipping weekends and observed U.S. federal holidays</li>
+<li>Counting how many business days fall between two dates for contracts or processing windows</li>
+<li>Adjusting calculations for company-specific blackout dates using custom holidays</li>
+</ul>
+<div class="sep"></div>
+<p class="mini">The calculator runs locally in your browser and is designed for quick deadline and settlement planning.</p>
+</aside>
+</div>
+<div id="adBottom" class="ad-slot is-off" aria-label="Advertisement"></div>
+<section class="content-section">
+<h2>What This Calculator Does</h2>
+<p>This business day calculator helps you calculate dates and deadlines using business days instead of calendar days. It operates in two modes.</p>
+<p><strong>Mode 1 — Add business days:</strong> Enter a start date and a number of business days to add. The calculator counts forward, skipping weekends and observed U.S. federal holidays, and returns the resulting business date.</p>
+<p><strong>Mode 2 — Count between dates:</strong> Enter a start date and an end date. The calculator counts how many business days fall between them, excluding weekends and observed U.S. federal holidays.</p>
+<p>Both modes support an option to include or exclude the start date and allow custom holiday exclusions for company-specific calendars.</p>
+</section>
+<section class="content-section">
+<h2>Example Calculation</h2>
+<p>This example shows how the calculator adds business days while skipping weekends and observed U.S. federal holidays.</p>
+<ul>
+<li><strong>Start date:</strong> Friday, March 6, 2026</li>
+<li><strong>Business days to add:</strong> 3</li>
+</ul>
+<p>The calculator moves forward one day at a time and only counts weekdays that are not excluded:</p>
+<ul>
+<li>Saturday, March 7 → <em>skipped (weekend)</em></li>
+<li>Sunday, March 8 → <em>skipped (weekend)</em></li>
+<li>Monday, March 9 → Day 1</li>
+<li>Tuesday, March 10 → Day 2</li>
+<li>Wednesday, March 11 → Day 3</li>
+</ul>
+<p><strong>Result: Wednesday, March 11, 2026</strong></p>
+</section>
+<section class="content-section">
+<h2>Formula</h2>
+<p><strong>Business Day Result = Start Date + counted weekdays that are not observed U.S. federal holidays or custom excluded dates.</strong></p>
+<ul>
+<li>Weekdays Monday through Friday can qualify as business days</li>
+<li>Saturdays and Sundays are always excluded</li>
+<li>Observed U.S. federal holidays are excluded automatically</li>
+<li>Any custom holidays entered by the user are also excluded</li>
+</ul>
+<p>In add mode, the calculator steps forward one day at a time until the requested number of valid business days has been counted. In between-dates mode, it evaluates each date in the selected range and counts only valid business days.</p>
+</section>
+<section class="content-section">
+<h2>Calculation Methodology</h2>
+<p>This calculator applies observed U.S. federal holiday rules. All major federal public holidays are included, such as New Year's Day, Martin Luther King Jr. Day, Presidents' Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving, and Christmas.</p>
+<p>Fixed-date holidays that fall on a weekend are shifted to the nearest weekday for observance. A Saturday holiday is typically observed on Friday, and a Sunday holiday is typically observed on Monday. This methodology helps align results with common business-day rules used by banks, payroll processors, and operations teams.</p>
+</section>
+<section class="content-section">
+<h2>Example Scenarios</h2>
+<p><strong>Scenario 1:</strong> A payment is sent on Friday and the receiving bank quotes one business day for processing. The next counted business day is Monday, so the expected processing date moves past the weekend.</p>
+<p><strong>Scenario 2:</strong> A payroll team needs to know the submit date for a Tuesday payday. Counting backward in business days helps avoid missing a weekend or holiday pause in settlement.</p>
+<p><strong>Scenario 3:</strong> A contract requires notice within five business days. Counting only valid business days prevents an incorrect deadline caused by including weekends.</p>
+</section>
+<section class="content-section">
+<h2>Understanding Business Days and Observed Holidays</h2>
+<p>Business-day calculations matter because many banking, payroll, and operational timelines do not run on calendar days. A calendar may show three days passing from Friday to Monday, but only one business day exists in that window.</p>
+<p>Observed holidays also change results. When a fixed-date holiday falls on a weekend, the observed closure usually moves to Friday or Monday. That means a date that looks like a normal weekday may still be excluded from processing and deadline counts.</p>
+<p>This is why business-day tools are used for ACH timing, payroll submission schedules, invoice due dates, and contract notice periods. The practical question is not simply how many days passed, but how many valid business days passed under the applicable rules.</p>
+</section>
+<section class="content-section">
+<h2>Common Scenarios</h2>
+<ul>
+<li><strong>Payroll processing timelines</strong> — estimate the submit date needed to pay employees on a target date</li>
+<li><strong>Bank settlement dates</strong> — determine when an ACH or wire transfer can settle under business-day timing</li>
+<li><strong>Invoice payment deadlines</strong> — calculate due dates that rely on business-day windows</li>
+<li><strong>Contract notice periods</strong> — count valid business days for notice or compliance clauses</li>
+<li><strong>Shipping and delivery estimates</strong> — estimate arrival windows when carriers use business-day timing</li>
+</ul>
+</section>
+<section class="content-section">
+<h2>FAQ</h2>
+<h3>What counts as a business day?</h3><p>A business day is Monday through Friday, excluding observed U.S. federal holidays and any custom holiday dates you enter.</p>
+<h3>Are weekends ever counted?</h3><p>No. Saturdays and Sundays are always skipped.</p>
+<h3>Can I add custom company holidays?</h3><p>Yes. Enter custom holiday dates in YYYY-MM-DD format, one per line, and the calculator will exclude them from the count.</p>
+<h3>Does the calculator store my data?</h3><p>No. The calculation runs in your browser and does not require an account.</p>
+</section>
+<section class="content-section">
+<h2>Related Calculators</h2>
+<div class="network-links related-tools"></div>
+</section>
+<footer class="foot">
+<div class="sep"></div>
+<div class="network-links related-tools"></div>
+<div class="footer-links"><a href="about.html">About</a> | <a href="privacy.html">Privacy</a> | <a href="legal.html">Legal</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact</a> <span class="footer-email">partnerships@calc-hq.com</span></div><div class="footer-resources"><strong>Resources:</strong> <a href="https://calc-hq.com" target="_blank" rel="noopener">Financial Calculator Hub</a></div>
+<div class="footer-meta">© <span id="year"></span> BizDayChecker.com</div>
+<p class="sponsor-line">Sponsored placements &amp; partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></p>
+</footer>
+</div>
 
-        <!-- AdSense -->
-        <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
-        <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
-            crossorigin="anonymous"
-        ></script>
-
-        <link rel="stylesheet" href="styles.css" />
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Business Day Calculator",
-            "url": "https://bizdaychecker.com/",
-            "applicationCategory": "FinanceApplication",
-            "operatingSystem": "All",
-            "description": "Online business day calculator that adds or counts business days while skipping weekends and U.S. federal holidays (observed)."
-        }
-        </script>
-    </head>
-    <body>
-        <div class="wrap">
-            <header>
-                <div class="brand">
-                    <h1>Biz Day Checker</h1>
-                    <p>
-                        Business day calculator — US federal holidays included
-                        automatically.
-                    </p>
-                </div>
-                <nav>
-                    <a href="index.html" class="active">Home</a>
-                    <a href="faq.html">FAQ</a>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="legal.html">Legal</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-            </header>
-
-            <!-- Sponsor (inactive by default) -->
-            <div id="sponsor" class="sponsor-slot is-off" aria-label="Sponsor"></div>
-            <!-- Ads (collapsed by default) -->
-            <div id="adTop" class="ad-slot is-off" aria-label="Advertisement"></div>
-
-            <div class="grid">
-                <section class="card">
-                    <h2>Calculate business days</h2>
-
-                    <label for="mode">Mode</label>
-                    <select id="mode">
-                        <option value="add">Add business days to a date</option>
-                        <option value="between">
-                            Business days between two dates
-                        </option>
-                    </select>
-
-                    <div id="addMode">
-                        <label for="startDate">Start date</label>
-                        <input type="date" id="startDate" />
-                        <label for="daysToAdd">Business days to add</label>
-                        <input type="number" id="daysToAdd" value="1" min="0" />
-                    </div>
-
-                    <div id="betweenMode" style="display: none">
-                        <label for="betweenStart">Start date</label>
-                        <input type="date" id="betweenStart" />
-                        <label for="betweenEnd">End date</label>
-                        <input type="date" id="betweenEnd" />
-                    </div>
-
-                    <label>
-                        <input type="checkbox" id="includeStart" /> Include
-                        start date as Day 1 (if business day)
-                    </label>
-
-                    <label for="customHolidays"
-                        >Custom holidays (optional)</label
-                    >
-                    <textarea
-                        id="customHolidays"
-                        placeholder="YYYY-MM-DD per line"
-                    ></textarea>
-
-                    <button class="btn" onclick="calculate()">Calculate</button>
-                    <button class="btn-secondary" onclick="copyResult()">
-                        Copy result
-                    </button>
-
-                    <div class="result" id="result">
-                        Enter values and calculate.
-                    </div>
-
-                    <p class="mini">
-                        Disclaimer: This is an informational tool. US federal
-                        holidays (observed) are included. Results are for
-                        planning purposes only.
-                    </p>
-                </section>
-
-                <aside class="card">
-                    <h2>Key Features</h2>
-                    <ul>
-                        <li>
-                            US federal holidays (observed) excluded
-                            automatically
-                        </li>
-                        <li>Weekends never counted</li>
-                        <li>Add custom holidays for your region or company</li>
-                        <li>Two modes: add days forward, or count between dates</li>
-                        <li>Copy result with one click</li>
-                    </ul>
-                    <div class="sep"></div>
-                    <p class="mini">
-                        No accounts, no tracking, no subscriptions. Runs
-                        entirely in your browser.
-                    </p>
-
-                    <!-- Sidebar sponsor slot (inactive — enable when sponsor confirmed) -->
-                    <div class="sponsor-sidebar" style="display: none" aria-hidden="true">
-                        <span class="sponsor-label">Sponsored</span>
-                        <!-- Sponsor content here -->
-                    </div>
-                </aside>
-            </div>
-
-            <div id="adBottom" class="ad-slot is-off" aria-label="Advertisement"></div>
-
-            <section class="content-section">
-                <h2>What This Calculator Does</h2>
-                <p>This business day calculator helps you calculate dates and deadlines using business days instead of calendar days. It operates in two modes.</p>
-                <p><strong>Mode 1 — Add business days:</strong> Enter a start date and a number of business days to add. The calculator counts forward, skipping weekends and U.S. federal holidays, and returns the resulting business date. This is useful for estimating payment processing dates, contract deadlines, and delivery windows.</p>
-                <p><strong>Mode 2 — Count between dates:</strong> Enter a start date and an end date. The calculator counts how many business days fall between them, excluding weekends and observed U.S. federal holidays. This is useful for tracking working days in a period, calculating payroll cycles, or measuring project timelines.</p>
-                <p>Both modes support an option to include or exclude the start date from the count, and allow you to enter custom holidays for your region or company calendar.</p>
-                <p class="mini">Results are estimates for planning purposes. Always verify critical deadlines with a qualified professional.</p>
-            </section>
-
-            <section class="content-section">
-                <h2>Example Business Day Calculation</h2>
-                <p>This example shows how the calculator adds business days while skipping weekends and U.S. federal holidays.</p>
-                <ul>
-                    <li><strong>Start date:</strong> Friday, March 6, 2026</li>
-                    <li><strong>Business days to add:</strong> 3</li>
-                </ul>
-                <p>The calculator moves forward one day at a time and only counts weekdays that are not federal holidays:</p>
-                <ul>
-                    <li>Saturday, March 7 → <em>skipped (weekend)</em></li>
-                    <li>Sunday, March 8 → <em>skipped (weekend)</em></li>
-                    <li>Monday, March 9 → Day 1</li>
-                    <li>Tuesday, March 10 → Day 2</li>
-                    <li>Wednesday, March 11 → Day 3</li>
-                </ul>
-                <p><strong>Result: Wednesday, March 11, 2026</strong></p>
-                <p>This ensures weekends and federal holidays are not counted when determining business day timelines.</p>
-            </section>
-
-            <section class="content-section">
-                <h2>How the Calculation Works</h2>
-                <p>Business days are calculated using the following rules:</p>
-                <ul>
-                    <li>Monday through Friday are counted as business days</li>
-                    <li>Saturdays and Sundays are excluded</li>
-                    <li>U.S. federal holidays are excluded using their observed dates</li>
-                    <li>When a holiday falls on a Saturday, the observed day is the preceding Friday</li>
-                    <li>When a holiday falls on a Sunday, the observed day is the following Monday</li>
-                    <li>Any custom holidays entered by the user are also excluded</li>
-                </ul>
-                <p><strong>Formula:</strong> Business Day Result = Start Date + Valid Business Days Counted Forward</p>
-                <p>A valid business day must satisfy both conditions: it falls Monday–Friday, and it is not a U.S. federal holiday.</p>
-            </section>
-
-            <section class="content-section">
-                <h2>Calculation Methodology</h2>
-                <p>This calculator applies U.S. federal holiday rules as defined by the Office of Personnel Management (OPM). All 11 federal public holidays are included:</p>
-                <ul>
-                    <li>New Year's Day (January 1)</li>
-                    <li>Martin Luther King Jr. Day (3rd Monday in January)</li>
-                    <li>Presidents' Day (3rd Monday in February)</li>
-                    <li>Memorial Day (last Monday in May)</li>
-                    <li>Juneteenth National Independence Day (June 19, since 2021)</li>
-                    <li>Independence Day (July 4)</li>
-                    <li>Labor Day (1st Monday in September)</li>
-                    <li>Columbus Day (2nd Monday in October)</li>
-                    <li>Veterans Day (November 11)</li>
-                    <li>Thanksgiving Day (4th Thursday in November)</li>
-                    <li>Christmas Day (December 25)</li>
-                </ul>
-                <p>Fixed-date holidays that fall on a weekend are shifted to the nearest weekday (Friday if Saturday, Monday if Sunday) per federal observed holiday rules. This methodology ensures business day results match the rules used by banks, payroll providers, and federal agencies.</p>
-            </section>
-
-            <section class="content-section">
-                <h2>Common Use Cases</h2>
-                <p>This business day calculator is commonly used for:</p>
-                <ul>
-                    <li><strong>Payroll processing timelines</strong> — find the submit date needed to pay employees on a target date</li>
-                    <li><strong>Bank settlement dates</strong> — determine when an ACH or wire transfer will settle</li>
-                    <li><strong>Invoice payment deadlines</strong> — calculate net-30 or net-60 payment due dates in business days</li>
-                    <li><strong>Contract notice periods</strong> — count business days for legal notice or termination clauses</li>
-                    <li><strong>Shipping and delivery estimates</strong> — estimate arrival dates when carriers use business day windows</li>
-                    <li><strong>Government and regulatory filing deadlines</strong> — determine exact business day cutoffs for submissions</li>
-                </ul>
-            </section>
-
-            <section class="content-section">
-                <h2>Related Calculators</h2>
-                <ul>
-                    <li><a href="https://bankcutoffchecker.com/" target="_blank" rel="noopener">Bank Cutoff Time Checker</a> — check whether an ACH or wire transfer will process today or next business day</li>
-                    <li><a href="https://payrolldatechecker.com/" target="_blank" rel="noopener">Payroll Date Checker</a> — calculate payroll submit dates based on pay date and lead time</li>
-                    <li><a href="https://hourly2salarycalc.com/" target="_blank" rel="noopener">Hourly to Salary Calculator</a> — convert hourly wage to annual, monthly, and weekly salary</li>
-                    <li><a href="https://salaryvsinflation.com/" target="_blank" rel="noopener">Salary vs Inflation Calculator</a> — see if your raise actually beats inflation in real terms</li>
-                </ul>
-            </section>
-
-            <footer class="foot">
-                <div class="sep"></div>
-                <div class="network-links related-tools"></div>
-                <div class="footer-links">
-                    <a href="privacy.html">Privacy</a> &nbsp;|&nbsp;
-                    <a href="legal.html">Legal</a> &nbsp;|&nbsp;
-                    <a href="faq.html">FAQ</a> &nbsp;|&nbsp;
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-meta">
-                    © <span id="year"></span> BizDayChecker.com
-                </div>
-                <p class="sponsor-line">
-                    Sponsored placements &amp; partnerships:
-                    <a href="mailto:partnerships@calc-hq.com"
-                        >partnerships@calc-hq.com</a
-                    >
-                </p>
-            </footer>
-        </div>
-
-        <script>
-            function toISO(d) {
-                return d.toISOString().slice(0, 10);
-            }
-            function addDays(d, n) {
-                let x = new Date(d);
-                x.setDate(x.getDate() + n);
-                return x;
-            }
-            function isWeekend(d) {
-                return d.getDay() == 0 || d.getDay() == 6;
-            }
-
-            function usHolidays(year) {
-                function obs(d) {
-                    let x = new Date(d.getTime());
-                    if (x.getDay() == 6) x = addDays(x, -1);
-                    if (x.getDay() == 0) x = addDays(x, 1);
-                    return x;
-                }
-                let h = [];
-                // New Year's Day - also check if Jan 1 falls on Saturday (observed Dec 31 prev year)
-                let ny = obs(new Date(year, 0, 1));
-                h.push(ny);
-                // If Jan 1 is Saturday, observed is Dec 31 of previous year - add that too
-                if (new Date(year, 0, 1).getDay() == 6)
-                    h.push(new Date(year - 1, 11, 31));
-                h.push(
-                    new Date(
-                        year,
-                        0,
-                        15 + ((1 - new Date(year, 0, 15).getDay() + 7) % 7),
-                    ),
-                ); // MLK Day
-                h.push(
-                    new Date(
-                        year,
-                        1,
-                        15 + ((1 - new Date(year, 1, 15).getDay() + 7) % 7),
-                    ),
-                ); // Presidents Day
-                h.push(
-                    new Date(
-                        year,
-                        4,
-                        31 - ((new Date(year, 4, 31).getDay() + 6) % 7),
-                    ),
-                ); // Memorial Day (last Mon May)
-                if (year >= 2021) h.push(obs(new Date(year, 5, 19))); // Juneteenth
-                h.push(obs(new Date(year, 6, 4))); // Independence Day
-                h.push(
-                    new Date(
-                        year,
-                        8,
-                        1 + ((1 - new Date(year, 8, 1).getDay() + 7) % 7),
-                    ),
-                ); // Labor Day
-                h.push(
-                    new Date(
-                        year,
-                        9,
-                        8 + ((1 - new Date(year, 9, 8).getDay() + 7) % 7),
-                    ),
-                ); // Columbus Day (2nd Mon Oct)
-                h.push(obs(new Date(year, 10, 11))); // Veterans Day
-                h.push(
-                    new Date(
-                        year,
-                        10,
-                        22 + ((4 - new Date(year, 10, 22).getDay() + 7) % 7),
-                    ),
-                ); // Thanksgiving
-                h.push(obs(new Date(year, 11, 25))); // Christmas
-                return h.map(toISO);
-            }
-
-            function buildHolidaySet(startDate, endDate) {
-                // Generate holidays for every year in the range + buffer years
-                let hol = new Set();
-                let startYear = startDate.getFullYear() - 1;
-                let endYear = endDate.getFullYear() + 1;
-                for (let y = startYear; y <= endYear; y++) {
-                    usHolidays(y).forEach((d) => hol.add(d));
-                }
-                return hol;
-            }
-
-            function calculate() {
-                let include = document.getElementById("includeStart").checked;
-                let custom = new Set(
-                    document
-                        .getElementById("customHolidays")
-                        .value.split("\n")
-                        .map((x) => x.trim())
-                        .filter((x) => x),
-                );
-
-                // Determine date range for holiday generation
-                let mode = document.getElementById("mode").value;
-                let rangeStart, rangeEnd;
-                if (mode == "add") {
-                    rangeStart = new Date(
-                        document.getElementById("startDate").value,
-                    );
-                    let n =
-                        parseInt(
-                            document.getElementById("daysToAdd").value,
-                            10,
-                        ) || 0;
-                    rangeEnd = addDays(rangeStart, Math.max(n * 2, 365)); // buffer
-                } else {
-                    rangeStart = new Date(
-                        document.getElementById("betweenStart").value,
-                    );
-                    rangeEnd = new Date(
-                        document.getElementById("betweenEnd").value,
-                    );
-                }
-
-                let hol = buildHolidaySet(rangeStart, rangeEnd);
-                function isBiz(d) {
-                    return (
-                        !isWeekend(d) &&
-                        !hol.has(toISO(d)) &&
-                        !custom.has(toISO(d))
-                    );
-                }
-                let out = "";
-                if (mode === "add") {
-                    let s = new Date(
-                        document.getElementById("startDate").value,
-                    );
-                    let n = parseInt(
-                        document.getElementById("daysToAdd").value,
-                        10,
-                    );
-                    let cur = new Date(s);
-                    let count = 0;
-                    if (include && isBiz(cur)) count = 1;
-                    else cur = addDays(cur, 1);
-                    while (count < n) {
-                        if (isBiz(cur)) count++;
-                        if (count < n) cur = addDays(cur, 1);
-                    }
-                    while (!isBiz(cur)) cur = addDays(cur, 1);
-                    out = "Result date: " + toISO(cur);
-                } else {
-                    let a = new Date(
-                        document.getElementById("betweenStart").value,
-                    );
-                    let b = new Date(
-                        document.getElementById("betweenEnd").value,
-                    );
-                    if (b < a) {
-                        let t = a;
-                        a = b;
-                        b = t;
-                    }
-                    let cur = new Date(a);
-                    if (!include) cur = addDays(cur, 1);
-                    let cnt = 0;
-                    while (cur <= b) {
-                        if (isBiz(cur)) cnt++;
-                        cur = addDays(cur, 1);
-                    }
-                    out = "Business days between: " + cnt;
-                }
-                document.getElementById("result").innerText = out;
-            }
-
-            function copyResult() {
-                navigator.clipboard.writeText(
-                    document.getElementById("result").innerText,
-                );
-            }
-
-            document.getElementById("mode").addEventListener("change", (e) => {
-                document.getElementById("addMode").style.display =
-                    e.target.value == "add" ? "block" : "none";
-                document.getElementById("betweenMode").style.display =
-                    e.target.value == "between" ? "block" : "none";
-            });
-
-            document.getElementById("year").textContent =
-                new Date().getFullYear();
-        </script>
-
-        <script src="config.js"></script>
-        <script src="ads.js"></script>
-        <script src="network.js"></script>
-    </body>
+        <script src="/assets/config.js"></script>
+        <script src="/assets/network.js"></script>
+        <script src="/assets/footer.js"></script>
+        <script src="/assets/ads.js"></script>
+        <script src="/assets/app.js"></script>
+    
+</body>
 </html>
