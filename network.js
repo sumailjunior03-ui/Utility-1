@@ -22,7 +22,9 @@ window.CALC_HQ_NETWORK = [
       const sites = window.CALC_HQ_NETWORK.filter(function (site) {
         try {
           const u = new URL(site.url);
-          return site.live && u.hostname.replace("www.", "") !== currentDomain;
+          const host = u.hostname.replace("www.", "");
+          if (host === "calc-hq.com") return false;
+          return site.live && host !== currentDomain;
         } catch (e) {
           return false;
         }

@@ -34,6 +34,7 @@
       if (!site || site.live !== true) return false;
       try {
         var host = new URL(site.url).hostname.replace(/^www\./, "").toLowerCase();
+        if (host === "calc-hq.com") return false;
         if (host === currentDomain) return false;
         if (FORBIDDEN.indexOf(host) !== -1) return false;
         return true;
